@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        GIT_BRANCH = "your-branch-name"     // Replace with the branch you want to monitor
-        CHECK_FOLDER = "mainfile"           // Root folder to start recursive check
+        GIT_BRANCH = "main"     // Replace with the branch you want to monitor
+        CHECK_FOLDER = "oozie"           // Root folder to start recursive check
     }
 
     triggers {
@@ -23,7 +23,7 @@ pipeline {
                 checkout([
                     $class: 'GitSCM',
                     branches: [[name: "*/${GIT_BRANCH}"]],
-                    userRemoteConfigs: [[url: 'https://gitlab.com/your-repo/your-project.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/souravnex/jenkins_file.git']]
                 ])
             }
         }
